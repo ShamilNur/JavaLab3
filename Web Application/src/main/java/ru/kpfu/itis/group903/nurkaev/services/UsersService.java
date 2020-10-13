@@ -1,0 +1,15 @@
+package ru.kpfu.itis.group903.nurkaev.services;
+
+import ru.kpfu.itis.group903.nurkaev.models.User;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface UsersService {
+    List<User> getAllUsers();
+    List<User> getUsersByAge(int age);
+    void save(User entity);
+    void delete(User entity);
+    void update(User entity);
+    Optional<User> findById(Long id);
+}

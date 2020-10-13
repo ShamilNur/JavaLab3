@@ -1,13 +1,13 @@
-/**
- * @nshamil Shamil Nurkaev
- * 11-903
- * Homework
- */
-
 package ru.kpfu.itis.group903.nurkaev.threads.pool;
 
 import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedDeque;
+
+/**
+ * @author @nshamil Shamil Nurkaev
+ * 11-903
+ * Homework
+ */
 
 // wait, notify, synchronized
 public class ThreadPool {

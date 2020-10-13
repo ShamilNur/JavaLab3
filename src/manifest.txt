@@ -1,0 +1,1 @@
+Main-class: ru.kpfu.itis.group903.nurkaev.threads.jar.Program

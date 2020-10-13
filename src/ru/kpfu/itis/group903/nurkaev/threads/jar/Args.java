@@ -1,9 +1,3 @@
-/**
- * @nshamil Shamil Nurkaev
- * 11-903
- * Homework
- */
-
 package ru.kpfu.itis.group903.nurkaev.threads.jar;
 
 import com.beust.jcommander.Parameter;
@@ -12,7 +6,13 @@ import com.beust.jcommander.converters.IntegerConverter;
 import ru.kpfu.itis.group903.nurkaev.threads.utils.StringToURLConverter;
 
 import java.net.URL;
-import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * @author @nshamil Shamil Nurkaev
+ * 11-903
+ * Homework
+ */
 
 @Parameters(separators = "=")
 public class Args {
@@ -23,7 +23,7 @@ public class Args {
     public int count;
 
     @Parameter(names = {"--files"}, converter = StringToURLConverter.class)
-    public List<URL> files;
+    public ArrayList<URL> files;
 
     @Parameter(names = {"--folder"})
     public String folder;

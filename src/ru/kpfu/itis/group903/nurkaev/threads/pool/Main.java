@@ -1,10 +1,10 @@
+package ru.kpfu.itis.group903.nurkaev.threads.pool;
+
 /**
- * @nshamil Shamil Nurkaev
+ * @author @nshamil Shamil Nurkaev
  * 11-903
  * Homework
  */
-
-package ru.kpfu.itis.group903.nurkaev.threads.pool;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,4 +44,3 @@ public class Main {
         };
     }
 }
-

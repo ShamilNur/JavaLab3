@@ -1,9 +1,3 @@
-/**
- * @nshamil Shamil Nurkaev
- * 11-903
- * Homework
- */
-
 package ru.kpfu.itis.group903.nurkaev.threads.utils;
 
 import com.beust.jcommander.IStringConverter;
@@ -12,6 +6,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author @nshamil Shamil Nurkaev
+ * 11-903
+ * Homework
+ */
 
 public class StringToURLConverter implements IStringConverter<List<URL>> {
     @Override

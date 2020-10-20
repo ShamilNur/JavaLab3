@@ -1,6 +1,9 @@
 package ru.kpfu.itis.group903.nurkaev.services;
 
+import ru.kpfu.itis.group903.nurkaev.exceptions.DuplicateEntryException;
+import ru.kpfu.itis.group903.nurkaev.forms.UserForm;
 import ru.kpfu.itis.group903.nurkaev.models.User;
+import ru.kpfu.itis.group903.nurkaev.models.UserSecond;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,4 +15,7 @@ public interface UsersService {
     void delete(User entity);
     void update(User entity);
     Optional<User> findById(Long id);
+    void signUp(UserForm userForm) throws DuplicateEntryException;
+    Optional<UserSecond> findOneByEmail(String email);
+
 }

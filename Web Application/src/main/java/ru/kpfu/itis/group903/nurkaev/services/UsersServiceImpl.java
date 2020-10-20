@@ -1,6 +1,9 @@
 package ru.kpfu.itis.group903.nurkaev.services;
 
+import ru.kpfu.itis.group903.nurkaev.exceptions.DuplicateEntryException;
+import ru.kpfu.itis.group903.nurkaev.forms.UserForm;
 import ru.kpfu.itis.group903.nurkaev.models.User;
+import ru.kpfu.itis.group903.nurkaev.models.UserSecond;
 import ru.kpfu.itis.group903.nurkaev.repositories.UsersRepository;
 
 import java.util.List;
@@ -48,5 +51,20 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public Optional<User> findById(Long id) {
         return usersRepository.findById(id);
+    }
+
+    @Override
+    public Optional<UserSecond> findOneByEmail(String email) {
+        return usersRepository.findOneByEmail(email);
+    }
+
+    @Override
+    public void signUp(UserForm userForm) throws DuplicateEntryException {
+        Optional<UserSecond> userOptional = usersRepository.findOneByEmail(userForm.getEmail());
+        if (userOptional.isPresent()) {
+            throw new DuplicateEntryException();
+        }
+
+        usersRepository.signUp(userForm);
     }
 }

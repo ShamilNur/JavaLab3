@@ -17,5 +17,5 @@ public interface UsersService {
     Optional<User> findById(Long id);
     void signUp(UserForm userForm) throws DuplicateEntryException;
     Optional<UserSecond> findOneByEmail(String email);
-
+    Optional<UserSecond> getUserSecondByUuid(String uuid);
 }

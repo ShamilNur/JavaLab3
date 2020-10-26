@@ -29,7 +29,6 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
     // language=SQL
     private static final String SQL_INSERT = "INSERT INTO student (first_name, last_name, age) VALUES (?, ?, ?)";
 
-
     // language=SQL
     private static final String SQL_UPDATE_BY_ID = "UPDATE student SET first_name = ?, last_name = ?, age = ? WHERE id = ?";
 
@@ -41,6 +40,9 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     //language=SQL
     private static final String SQL_SELECT_USER_BY_EMAIL = "SELECT * FROM user_second WHERE email = ?";
+
+    //language=SQL
+    private static final String SQL_SELECT_USER_BY_UUID = "SELECT * FROM user_second WHERE uuid = ?";
 
     private final DataSource dataSource;
 
@@ -92,12 +94,12 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     @Override
     public void update(User entity) {
-        template.update(SQL_UPDATE_BY_ID, userRowMapper, entity.getFirstName(), entity.getLastName(), entity.getAge(), entity.getId());
+        template.query(SQL_UPDATE_BY_ID, userRowMapper, entity.getFirstName(), entity.getLastName(), entity.getAge(), entity.getId());
     }
 
     @Override
     public void delete(User entity) {
-        template.update(SQL_DELETE_BY_ID, userRowMapper, entity.getId());
+        template.query(SQL_DELETE_BY_ID, userRowMapper, entity.getId());
     }
 
     @Override
@@ -158,6 +160,15 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     @Override
     public Optional<UserSecond> findOneByEmail(String email) {
+        // this query will return list with only one user.
+        // findAny returns this user.
         return template.queryForList(SQL_SELECT_USER_BY_EMAIL, userSecondRowMapper, email).stream().findAny();
+    }
+
+    @Override
+    public Optional<UserSecond> getUserSecondByUuid(String uuid) {
+        // this query will return list with only one user.
+        // findAny returns this user.
+        return template.queryForList(SQL_SELECT_USER_BY_UUID, userSecondRowMapper, uuid).stream().findAny();
     }
 }

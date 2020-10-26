@@ -9,6 +9,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,12 +51,14 @@ public class SignUpServlet extends HttpServlet {
                         .build();
 
                 usersService.signUp(userForm);
-//                resp.sendRedirect("/users");
-                resp.sendRedirect(req.getRequestURI());
+
+                String uuid = userForm.getUuid();
+                Cookie cookie = new Cookie("Auth", uuid);
+                cookie.setMaxAge(60 * 60 * 24 * 365);
+                resp.addCookie(cookie);
+                resp.sendRedirect("/users");
                 return;
-            } /*catch (DbException e) {
-                req.setAttribute("message", "Error with DB has been occurred.");
-            }*/ catch (DuplicateEntryException e) {
+            } catch (DuplicateEntryException e) {
                 req.setAttribute("message", "User with such email already exists.");
             }
         } else {

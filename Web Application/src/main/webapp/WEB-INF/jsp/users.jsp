@@ -1,11 +1,5 @@
 <%@ page import="ru.kpfu.itis.group903.nurkaev.models.User" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: nurka
-  Date: 17.10.2020
-  Time: 23:53
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

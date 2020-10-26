@@ -15,4 +15,6 @@ public interface UsersRepository extends CrudRepository<User> {
     void save(UserSecond entity);
 
     Optional<UserSecond> findOneByEmail(String email);
+
+    Optional<UserSecond> getUserSecondByUuid(String uuid);
 }

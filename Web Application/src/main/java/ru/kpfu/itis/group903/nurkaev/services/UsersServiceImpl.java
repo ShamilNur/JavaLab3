@@ -59,6 +59,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public Optional<UserSecond> getUserSecondByUuid(String uuid) {
+        return usersRepository.getUserSecondByUuid(uuid);
+    }
+
+    @Override
     public void signUp(UserForm userForm) throws DuplicateEntryException {
         Optional<UserSecond> userOptional = usersRepository.findOneByEmail(userForm.getEmail());
         if (userOptional.isPresent()) {

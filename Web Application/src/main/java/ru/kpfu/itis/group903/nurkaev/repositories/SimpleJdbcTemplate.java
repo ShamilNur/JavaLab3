@@ -47,7 +47,7 @@ public class SimpleJdbcTemplate {
         }
     }
 
-    public <T> void update(String sql, RowMapper<T> rowMapper, Object... args) {
+    public <T> void query(String sql, RowMapper<T> rowMapper, Object... args) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
